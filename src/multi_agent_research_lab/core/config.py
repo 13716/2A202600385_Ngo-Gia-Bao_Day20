@@ -7,7 +7,10 @@ from functools import lru_cache
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
 
+# Force .env file to override system environment variables (Windows global vars)
+load_dotenv(override=True)
 
 class Settings(BaseSettings):
     """Runtime settings loaded from environment variables or `.env`."""
